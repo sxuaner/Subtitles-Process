@@ -1,5 +1,7 @@
 # better use functions. When function exits, all vars or lists will be released.
 '''
+HOW-TO:
+
 $python change2.py :
 Read all file in current folder where change2.py locates in.
 
