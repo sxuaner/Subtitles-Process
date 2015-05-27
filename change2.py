@@ -13,9 +13,7 @@
    It deletes the following lines:
    1
    00:00:00,345 --> 00:00:06,206
-'''
 
-'''
    A hint for process multiple files in the same folder
    import os.path
    os.listdir (folderPath) returns a list of file names.
@@ -24,12 +22,7 @@
 
 import re
 import sys
-
-sourcefile = sys.argv[1]
-tempfile = sys.argv[2]
-
-p = re.compile('[0-9]+\r\n')
-q = re.compile('[0-9]{2}\:')
+import inspect
 
 
 def cleanfile(sourcefile, tempfile):
@@ -40,9 +33,14 @@ def cleanfile(sourcefile, tempfile):
                     sub.write('')
                 else:
                     sub.write(line)
-        sub.close()
-    f.close()
+            sub.close()
+            f.close()
 
 
 if __name__ == "__main__":
+    p = re.compile('[0-9]+\r\n')
+    q = re.compile('[0-9]{2}\:')
+
+    sourcefile = sys.argv[1]
+    tempfile = soucefile + '-output'
     cleanfile(sourcefile, tempfile)
