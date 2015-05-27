@@ -1,7 +1,7 @@
 # better use functions. When function exits, all vars or lists will be released.
 
 '''
-   @ par: sourcefile, tempfile
+   @ par: sourcefile
    Create a tempfile if it doesn't exist.
 
    a .srt file might look like this:
@@ -24,6 +24,9 @@ import re
 import sys
 import inspect
 
+p = re.compile('[0-9]+\r\n')
+q = re.compile('[0-9]{2}\:')
+
 
 def cleanfile(sourcefile, tempfile):
     with open(sourcefile) as f:
@@ -38,9 +41,7 @@ def cleanfile(sourcefile, tempfile):
 
 
 if __name__ == "__main__":
-    p = re.compile('[0-9]+\r\n')
-    q = re.compile('[0-9]{2}\:')
 
     sourcefile = sys.argv[1]
-    tempfile = soucefile + '-output'
+    tempfile = sourcefile + '-output'
     cleanfile(sourcefile, tempfile)
