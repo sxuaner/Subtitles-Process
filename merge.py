@@ -1,3 +1,6 @@
+'''
+This program merges all files in current folder excluding merge.py itself.
+'''
 import os
 
 def merge(sourcefile, merged):
@@ -9,13 +12,13 @@ def merge(sourcefile, merged):
 
 if __name__  == "__main__":
     dirPath = os.getcwd()
-    merged = open(dirPath + '/merged', 'a')
 
     fileIndex = []
     for i in os.listdir(dirPath):
         if(os.path.isfile(i) and i != "merge.py"):
             fileIndex.append(i)
 
+    merged = open(dirPath + '/merged', 'a')
     for n in fileIndex:
         merge(n,merged)
         print n
